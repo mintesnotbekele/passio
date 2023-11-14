@@ -131,7 +131,7 @@
                                     <div id="uploding_image"></div>
                                 </div>
                                 <div class="form-group row width-50">
-                                    <label class="col-3 control-label">Live Selfie Picture</label>
+                                    <label class="col-3 control-label">Take a photo with your ID</label>
                                     <div class="col-7">
                                         <input type="file" onChange="handleSelfieFileSelect(event)" class="">
                                         <div class="form-text text-muted">{{trans('lang.profile_image_help')}}</div>
@@ -527,7 +527,7 @@
                                 <div class="form-group row" id="companyDriverHideDiv">
 
                                     <div class="form-group row width-100">
-                                        <label class="col-4 control-label">{{trans('lang.bank_name')}}</label>
+                                        <label class="col-4 control-label">Name registered with Mtn mobile money</label>
                                         <div class="col-7">
                                             <input type="text" name="bank_name" class="form-control" id="bankName"
                                                    onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)">
@@ -535,7 +535,7 @@
                                     </div>
 
                                     <div class="form-group row width-100">
-                                        <label class="col-4 control-label">{{trans('lang.branch_name')}}</label>
+                                        <label class="col-4 control-label">mtn mobile money number </label>
                                         <div class="col-7">
                                             <input type="text" name="branch_name" class="form-control" id="branchName"
                                                    onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)">
@@ -544,7 +544,7 @@
 
 
                                     <div class="form-group row width-100">
-                                        <label class="col-4 control-label">{{trans('lang.holer_name')}}</label>
+                                        <label class="col-4 control-label">Name registered with Orange money </label>
                                         <div class="col-7">
                                             <input type="text" name="holer_name" class="form-control" id="holderName"
                                                    onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)">
@@ -552,7 +552,7 @@
                                     </div>
 
                                     <div class="form-group row width-100">
-                                        <label class="col-4 control-label">{{trans('lang.account_number')}}</label>
+                                        <label class="col-4 control-label">orange money number</label>
                                         <div class="col-7">
                                             <input type="text" name="account_number" class="form-control"
                                                    id="accountNumber" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
@@ -560,7 +560,14 @@
                                     </div>
 
                                     <div class="form-group row width-100">
-                                        <label class="col-4 control-label">{{trans('lang.other_information')}}</label>
+                                        <label class="col-4 control-label">Name registered with Camtel money</label>
+                                        <div class="col-7">
+                                            <input type="text" name="other_information" class="form-control"
+                                                   id="otherDetails">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row width-100">
+                                        <label class="col-4 control-label">Camtel money Number</label>
                                         <div class="col-7">
                                             <input type="text" name="other_information" class="form-control"
                                                    id="otherDetails">

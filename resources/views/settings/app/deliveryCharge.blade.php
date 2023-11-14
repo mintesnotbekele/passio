@@ -63,9 +63,26 @@
                             </div>
                         </div>
                         <div class="form-group row width-100">
-                            <label class="col-4 control-label">Discounted Price </label>
+                            <label class="col-4 control-label">Discounted Percentage</label>
                             <div class="col-7">
                                 <input type="number" class="form-control" id="new_discount_price">
+                            </div>
+                        </div>
+                        <div class="form-check width-100">
+                            <input type="checkbox" class="form-check-inline" id="enable_discount2">
+                            <label class="col-5 control-label"
+                                   for="enable_discount">Enable Second Discount</label>
+                        </div>
+                        <div class="form-group row width-100">
+                            <label class="col-4 control-label">Second Discounted Price from KM</label>
+                            <div class="col-7">
+                                <input type="number" class="form-control" id="discount_from_km2">
+                            </div>
+                        </div>
+                        <div class="form-group row width-100">
+                            <label class="col-4 control-label">Second Discounted Percentage</label>
+                            <div class="col-7">
+                                <input type="number" class="form-control" id="new_discount_price2">
                             </div>
                         </div>
 
