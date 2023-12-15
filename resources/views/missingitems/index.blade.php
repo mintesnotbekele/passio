@@ -128,9 +128,7 @@
 
     var append_list = '';
 
-    var currentCurrency = '';
-    var currencyAtRight = false;
-    var decimal_degits = 0;
+
 
   
 
@@ -244,7 +242,7 @@
              
 
            
-        html = html + '<td class="payment_images">' + payment_method + '</td>';
+      
 
       
 
