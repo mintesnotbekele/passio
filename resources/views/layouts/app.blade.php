@@ -239,6 +239,7 @@
 <script src="{{ asset('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
 <script src="{{ asset('js/custom.min.js') }}"></script>
+<script src="{{ asset('/assets/js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/summernote/summernote-bs4.js')}}"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
@@ -253,6 +254,8 @@
 <script src="{{ asset('js/crypto-js.js') }}"></script>
 <script src="{{ asset('js/jquery.cookie.js') }}"></script>
 <script src="{{ asset('js/jquery.validate.js') }}"></script>
+
+
 <!-- Datatable script -->
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript"

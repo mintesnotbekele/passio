@@ -124,7 +124,7 @@
                                 <div class="form-group row width-50">
                                     <label class="col-3 control-label">4x4 Profile Picture</label>
                                     <div class="col-7">
-                                        <input type="file" onChange="handleFileSelect(event)" class="">
+                                        <input type="file" onChange="handleProfileSelect(event)" class="">
                                         <div class="form-text text-muted">{{trans('lang.profile_image_help')}}</div>
                                     </div>
                                     <div class="placeholder_img_thumb user_image"></div>
@@ -136,8 +136,8 @@
                                         <input type="file" onChange="handleSelfieFileSelect(event)" class="">
                                         <div class="form-text text-muted">{{trans('lang.profile_image_help')}}</div>
                                     </div>
-                                    <div class="placeholder_img_thumb user_image"></div>
-                                    <div id="uploding_image"></div>
+                                    <div class="placeholder_img_thumb selfie_image"></div>
+                                    <div id="uploding_selfie"></div>
                                 </div>
                                 <div class="form-group row width-50">
                                     <label class="col-3 control-label">Driver Id Card/Passport Picture</label>
@@ -146,7 +146,7 @@
                                         <div class="form-text text-muted">{{trans('lang.profile_image_help')}}</div>
                                     </div>
                                     <div class="placeholder_img_thumb Idcard_image"></div>
-                                    <div id="uploding_image"></div>
+                                    <div id="uploding_idcard"></div>
                                 </div>
 
                                 <div class="form-group row width-50">
@@ -156,7 +156,7 @@
                                         <div class="form-text text-muted">insert Vehicle registraiion</div>
                                     </div>
                                     <div class="placeholder_img_thumb vehicleregistration_image"></div>
-                                    <div id="uploding_image"></div>
+                                    <div id="uploding_vreg"></div>
                                 </div>
                                 <div class="form-group row width-50">
                                     <label class="col-3 control-label">Driver License</label>
@@ -165,7 +165,7 @@
                                         <div class="form-text text-muted">{{trans('lang.profile_image_help')}}</div>
                                     </div>
                                     <div class="placeholder_img_thumb license_image"></div>
-                                    <div id="uploding_image"></div>
+                                    <div id="uploding_drvlsc"></div>
                                 </div>
 
                                 <div class="form-check width-100">
@@ -301,7 +301,7 @@
                                         <div id="uploding_car_proof"></div>
                                     </div>
 
-                                    <div class="form-group row width-50 individualDiv">
+                                    <!-- <div class="form-group row width-50 individualDiv">
                                         <label class="col-3 control-label">{{trans('lang.driver_proof')}}</label>
                                         <div class="col-7">
                                             <input type="file" onChange="handleFileSelectDriverProof(event)" class="">
@@ -310,7 +310,7 @@
                                         <div class="placeholder_img_thumb driver_proof">
                                         </div>
                                         <div id="uploding_driver_proof"></div>
-                                    </div>
+                                    </div> -->
                                     <div class="companyDiv" style="display: none">
                                         <div class="form-group row width-50">
                                             <label class="col-3 control-label">{{trans('lang.company_name')}}</label>
@@ -529,16 +529,16 @@
                                     <div class="form-group row width-100">
                                         <label class="col-4 control-label">Name registered with Mtn mobile money</label>
                                         <div class="col-7">
-                                            <input type="text" name="bank_name" class="form-control" id="bankName"
-                                                   onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)">
+                                            <input type="text" name="mtnName" class="form-control" id="mtnName"
+                                                  >
                                         </div>
                                     </div>
 
                                     <div class="form-group row width-100">
                                         <label class="col-4 control-label">mtn mobile money number </label>
                                         <div class="col-7">
-                                            <input type="text" name="branch_name" class="form-control" id="branchName"
-                                                   onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)">
+                                            <input type="text" name="mtnNumber" class="form-control" id="mtnNumber"
+                                                  >
                                         </div>
                                     </div>
 
@@ -546,31 +546,31 @@
                                     <div class="form-group row width-100">
                                         <label class="col-4 control-label">Name registered with Orange money </label>
                                         <div class="col-7">
-                                            <input type="text" name="holer_name" class="form-control" id="holderName"
-                                                   onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)">
+                                            <input type="text" name="orangeName" class="form-control" id="orangeName"
+                                                  >
                                         </div>
                                     </div>
 
                                     <div class="form-group row width-100">
                                         <label class="col-4 control-label">orange money number</label>
                                         <div class="col-7">
-                                            <input type="text" name="account_number" class="form-control"
-                                                   id="accountNumber" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                            <input type="text" name="orangeNumber" class="form-control"
+                                                   id="orangeNumber" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                         </div>
                                     </div>
 
                                     <div class="form-group row width-100">
                                         <label class="col-4 control-label">Name registered with Camtel money</label>
                                         <div class="col-7">
-                                            <input type="text" name="other_information" class="form-control"
-                                                   id="otherDetails">
+                                            <input type="text" name="camtelName" class="form-control"
+                                                   id="camtelName">
                                         </div>
                                     </div>
                                     <div class="form-group row width-100">
                                         <label class="col-4 control-label">Camtel money Number</label>
                                         <div class="col-7">
-                                            <input type="text" name="other_information" class="form-control"
-                                                   id="otherDetails">
+                                            <input type="text" name="camtelNumber" class="form-control"
+                                                   id="camtelNumber">
                                         </div>
                                     </div>
 
@@ -602,15 +602,19 @@
                 var geoFirestore = new GeoFirestore(database);
                 var createdAt = firebase.firestore.FieldValue.serverTimestamp();
 
-                var photo = "";
+                var profilePhoto = "";
+
                 var selfieImage = "";
-                var driverLicense = "";
-                var vehicleRegistration = "";
                 var driverIdCard = "";
+                var vehicleRegistration = "";
+
+                var driverLicense = "";
+               
+               
                 
-                var carPictureURL = "";
+        
                 var carProofPictureURL = '';
-                var driverProofPictureURL = '';
+            
                 var refCarMake = database.collection('car_make');
                 var refCarModel = database.collection('car_model');
                 var refVehicleType = database.collection('vehicle_type');
@@ -673,8 +677,11 @@
                     });
 
                     cab_sections.get().then(async function (snapshots) {
+                        console.log("section");
+                       
                         snapshots.docs.forEach((listval) => {
                             var data = listval.data();
+                            console.log(data);
                             $('.cab_section_id').append($("<option></option>")
                                 .attr("value", data.id)
                                 .text(data.name));
@@ -791,7 +798,15 @@
                     var vehicleTypeName = $('.vehicle_type option:selected').text();
                     var cabSectionId = $('.cab_section_id').val();
                     var carColor = $('.car_color').val();
+                    var mtnName = $('.mtnName').val();
+                    var mtnNumber = $('.mtnNumber').val();
 
+                    var orangeName = $('.orangeName').val();
+                    var orangeNumber = $('.orangeNumber').val();
+                    
+                    var camtelName = $('.camtelName').val();
+                    var camtelumber = $('.camtelumber').val();
+                    
                     var rideType = 'ride';
                     if ($("#is_intercity").is(":checked") == true) {
                         rideType = 'both';
@@ -960,18 +975,11 @@
                         var holderName = $("#holderName").val();
                         var accountNumber = $("#accountNumber").val();
                         var otherDetails = $("#otherDetails").val();
-                        var userBankDetails = {
-                            'bankName': bankName,
-                            'branchName': branchName,
-                            'holderName': holderName,
-                            'accountNumber': accountNumber,
-                            'accountNumber': accountNumber,
-                            'otherDetails': otherDetails,
-                        };
+        
 
                         if (service_type != "cab-service") {
                             carMakeId = car_model;
-                            carColor = carProofPictureURL = driverProofPictureURL = "";
+                            carColor = carProofPictureURL = "";
                         }
 
 
@@ -986,8 +994,8 @@
                                     'email': email,
                                     'phoneNumber': userPhone,
                                     'active': active,
-                                    'profilePictureURL': photo,
-                                    'driverSelfie': selfieImage,
+                                    'profilePicture': profilePhoto,
+                                    'selfieImage': selfieImage,
                                     'vehicleRegistration': vehicleRegistration,
                                     'driverLiscence': driverLicense,
                                     'driverIdCard': driverIdCard,
@@ -1003,7 +1011,6 @@
                                     'vehicleTypeName': vehicleTypeName,
                                     'carColor': carColor,
                                     'carProofPictureURL': carProofPictureURL,
-                                    'driverProofPictureURL': driverProofPictureURL,
                                     'location': location,
                                     'carPictureURL': carPictureURL,
                                     'role': 'driver',
@@ -1016,7 +1023,12 @@
                                     'companyId': getCompanyId,
                                     'companyName': companyName,
                                     'companyAddress': companyAddress,
-                                    'userBankDetails': userBankDetails,
+                                    "camtelName": "",
+                                    "camtelNumber": "",
+                                    "mtnName": "",
+                                    "mtnNumber": "",
+                                    "orangeName": "",
+                                    "orangeNumber": "",
                                     'coordinates': coordinates,
                                     'createdAt': createdAt
                                 }).then(function (result) {
@@ -1096,7 +1108,7 @@
 
                 var storageRef = firebase.storage().ref('images');
 
-                function handleFileSelect(evt) {
+                function handleProfileSelect(evt) {
                     var f = evt.target.files[0];
                     var reader = new FileReader();
 
@@ -1128,9 +1140,9 @@
                                     //spinner.stop();
                                     jQuery("#uploding_image").text("Upload is completed");
                                     //jQuery("#photo").val(downloadURL);
-                                    photo = downloadURL;
+                                    profilePhoto = downloadURL;
                                     $(".user_image").empty();
-                                    $(".user_image").append('<img class="rounded" style="width:50px" src="' + photo + '" alt="image">');
+                                    $(".user_image").append('<img class="rounded" style="width:50px" src="' + profilePhoto + '" alt="image">');
 
                                 });
                             });
@@ -1171,7 +1183,7 @@
                             }, function () {
                                 uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                                     //spinner.stop();
-                                    jQuery("#uploding_image").text("Upload is completed");
+                                    jQuery("#uploding_selfie").text("Upload is completed");
                                     //jQuery("#photo").val(downloadURL);
                                     selfieImage = downloadURL;
                                     $(".selfie_image").empty();
@@ -1210,7 +1222,7 @@
 
                                 var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                                 console.log('Upload is ' + progress + '% done');
-                                jQuery("#uploding_image").text("Image is uploading...");
+                                jQuery("#uploding_idcars").text("Image is uploading...");
 
                             }, function (error) {
                                 // Handle unsuccessful uploads
@@ -1257,14 +1269,14 @@
 
                                 var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                                 console.log('Upload is ' + progress + '% done');
-                                jQuery("#uploding_image").text("Image is uploading...");
+                                jQuery("#uploding_drvlsc").text("Image is uploading...");
 
                             }, function (error) {
                                 // Handle unsuccessful uploads
                             }, function () {
                                 uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                                     //spinner.stop();
-                                    jQuery("#uploding_image").text("Upload is completed");
+                                    jQuery("#uploding_lsc").text("Upload is completed");
                                     //jQuery("#photo").val(downloadURL);
                                     driverLicense = downloadURL;
                                     $(".license_image").empty();
@@ -1302,14 +1314,14 @@
 
                                 var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                                 console.log('Upload is ' + progress + '% done');
-                                jQuery("#uploding_image").text("Image is uploading...");
+                                jQuery("#uploding_vreg").text("Image is uploading...");
 
                             }, function (error) {
                                 // Handle unsuccessful uploads
                             }, function () {
                                 uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                                     //spinner.stop();
-                                    jQuery("#uploding_image").text("Upload is completed");
+                                    jQuery("#uploding_vreg").text("Upload is completed");
                                     //jQuery("#photo").val(downloadURL);
                                     vehicleRegistration = downloadURL;
                                     $(".vehicleregistration_image").empty();

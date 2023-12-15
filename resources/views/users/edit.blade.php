@@ -143,6 +143,12 @@
                             <div class="placeholder_img_thumb user_image"></div>
                             <div id="uploding_image"></div>
                         </div>
+                        <div class="form-group row width-100">
+								<label class="col-3 control-label">Selfie Image With Id</label>
+								<input type="file" onChange="handleSelfieSelect(event)" class="col-7">
+								<div class="placeholder_img_thumb user_selfie"></div>
+								<div id="uploding_selfie"></div>
+							</div>
                     </fieldset>
 
                     <fieldset>
@@ -222,17 +228,16 @@
                             </div>
 
                         </div>
-                        <div class="form-group row width-100">
-                            <div class="col-12">
-                                <h6>{{ trans("lang.know_your_cordinates") }}<a target="_blank"
-                                        href="https://www.latlong.net/">{{
-                                        trans("lang.latitude_and_longitude_finder") }}</a></h6>
-                            </div>
+                        <div class="col-7">
+                            <button type="button" onclick="getLocation()" class="btn btn-primary"><i
+                                class="fa fa-save"></i>Get your Co-ordinates</button>
+                            <div id="error2" class="err"></div>
+                            <div class="form-text text-muted"></div>
                         </div>
                         <div class="form-group row width-50">
                             <label class="col-3 control-label">{{trans('lang.user_latitude')}}</label>
                             <div class="col-7">
-                                <input type="text" class="form-control user_latitude" onkeypress="return chkAlphabets3(event,'error6')">
+                                <input id="userlat" type="text" class="form-control user_latitude" onkeypress="return chkAlphabets3(event,'error6')">
                                 <div id="error6" class="err"></div>
                                 <div class="form-text text-muted w-50">
                                     {{ trans("lang.user_latitude_help") }}
@@ -243,7 +248,7 @@
                         <div class="form-group row width-50">
                             <label class="col-3 control-label">{{trans('lang.user_longitude')}}</label>
                             <div class="col-7">
-                                <input type="text" class="form-control user_longitude" onkeypress="return chkAlphabets3(event,'error7')">
+                                <input id="userlong" type="text" class="form-control user_longitude" onkeypress="return chkAlphabets3(event,'error7')">
                                 <div id="error7" class="err"></div>
                                 <div class="form-text text-muted w-50">
                                     {{ trans("lang.user_longitude_help") }}
@@ -278,6 +283,7 @@ var database = firebase.firestore();
 var ref = database.collection('users').where("id", "==", id);
 
 var photo = "";
+var selfie = "";
 var placeholderImage = '';
 var placeholder = database.collection('settings').doc('placeHolderImage');
 
@@ -343,6 +349,7 @@ $(document).ready(function () {
         //}
 
         photo = user.profilePictureURL;
+        selfie = user.userSelfie;
         if (photo != '') {
 
             $(".user_image").append('<img class="rounded" style="width:50px" src="' + photo + '" alt="image">');
@@ -350,6 +357,14 @@ $(document).ready(function () {
 
             $(".user_image").append('<img class="rounded" style="width:50px" src="' + placeholderImage + '" alt="image">');
         }
+
+        if (selfie != '') {
+
+            $(".user_selfie").append('<img class="rounded" style="width:50px" src="' + selfie + '" alt="image">');
+            } else {
+
+            $(".user_selfie").append('<img class="rounded" style="width:50px" src="' + placeholderImage + '" alt="image">');
+            }
 
         if (user.active) {
             $(".user_active").prop('checked', true);
@@ -460,6 +475,7 @@ $(document).ready(function () {
                 'phoneNumber': userPhone,
                 'isActive': active,
                 'profilePictureURL': photo,
+                'userSelfie': selfie,
                 'role': 'customer',
                 'location.latitude': latitude,
                 'location.longitude': longitude,
@@ -476,6 +492,20 @@ $(document).ready(function () {
 
 
 })
+
+function getLocation() {
+                    var latInput = document.getElementById('userlat');
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                        console.log("Geolocation is not supported by this browser.");
+                    }
+                    }
+                    function showPosition(position) {
+                        $('#userlat').val(position.coords.latitude);
+                        $('#userlong').val(position.coords.longitude);
+                   
+                    }
 var storageRef = firebase.storage().ref('images');
 
 function handleFileSelect(evt) {
@@ -516,6 +546,47 @@ function handleFileSelect(evt) {
     })(f);
     reader.readAsDataURL(f);
 }
+function handleSelfieSelect(evt) {
+		var f = evt.target.files[0];
+		var reader = new FileReader();
+
+		reader.onload = (function (theFile) {
+			return function (e) {
+
+				var filePayload = e.target.result;
+				var hash = CryptoJS.SHA256(Math.random() + CryptoJS.SHA256(filePayload));
+
+				var val = f.name;
+				var ext = val.split('.')[1];
+				var docName = val.split('fakepath')[1];
+				var filename = (f.name).replace(/C:\\fakepath\\/i, '')
+
+				var timestamp = Number(new Date());
+				var filename = filename.split('.')[0] + "_" + timestamp + '.' + ext;
+
+				var uploadTask = storageRef.child(filename).put(theFile);
+				console.log(uploadTask);
+				uploadTask.on('state_changed', function (snapshot) {
+
+					var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+					console.log('Upload is ' + progress + '% done');
+					jQuery("#uploding_selfie").text("Image is uploading...");
+
+				}, function (error) {
+				}, function () {
+					uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+						jQuery("#uploding_image").text("Upload is completed");
+						selfie = downloadURL;
+						$(".user_selfie").empty();
+						$(".user_selfie").append('<img class="rounded" style="width:50px" src="' + selfie + '" alt="image">');
+
+					});
+				});
+
+			};
+		})(f);
+		reader.readAsDataURL(f);
+	}
 function chkAlphabets(event,msg)
 	{
 		if(!(event.which>=97 && event.which<=122) && !(event.which>=65 && event.which<=90) )

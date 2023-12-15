@@ -6,15 +6,21 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "bhekor/laravel-flutterwave": "^0.0.1",
         "braintree/braintree_php": "^6.7",
+        "cornford/googlmapper": "^3.4",
+        "flutterwavedev/flutterwave-v3": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "kingflamez/laravelrave": "^4.2",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "paytm/paytmchecksum": "^1.1",
         "razorpay/razorpay": "2.*",
+        "spatie/laravel-permission": "^6.2",
+        "stephenjude/laravel-payment-gateways": "^2.0",
         "stripe/stripe-php": "^7.116"
     },
     "require-dev": {

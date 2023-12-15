@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Spatie\Permission\Models\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,8 +39,12 @@ Route::post('payments/stripepaymentintent', [App\Http\Controllers\PaymentControl
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+Route::get('/admins', [App\Http\Controllers\UserController::class, 'admins'])->name('admins');
+ 
+        
+    
 
 Route::get('/owners', [App\Http\Controllers\VendorController::class, 'owners'])->name('owners');
 
@@ -88,7 +92,34 @@ Route::get('/section/edit/{id}', [App\Http\Controllers\SectionController::class,
 
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users');
 
+
+ 
+
+Route::get('/admins/createRole', [App\Http\Controllers\UserController::class, 'createRole'])->name('admins.createRole');
+Route::get('/admins/assignRole', [App\Http\Controllers\UserController::class, 'assignRoles'])->name('admins.assignRole');
+Route::post('/admins/store', [App\Http\Controllers\UserController::class, 'storeAdmin'])->name('admin.store');
+Route::post('/roles/store', [App\Http\Controllers\RoleController::class, 'store'])->name('role.store');
+
+Route::get('/admins/{id}/delete',  [App\Http\Controllers\UserController::class, 'destroyAdmin'])->name('admin.delete');
 Route::get('/users/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+Route::get('/admins/edit/{id}', [App\Http\Controllers\UserController::class, 'editAdmin'])->name('admin.edit');
+Route::get('/pay', function () {
+    return view('payment-gateways.checkout/klasha');
+});
+
+Route::get('roles', [App\Http\Controllers\RoleController::class, 'index'])->name('roles');
+
+Route::get('/missingitems', [App\Http\Controllers\MissingItemController::class, 'index'])->name('missingitems');
+Route::get('/roles/create', [App\Http\Controllers\RoleController::class, 'create'])->name('roles.create');
+Route::get('/roles/edit/{id}', [App\Http\Controllers\RoleController::class, 'edit'])->name('roles.edit');
+Route::put('/roles/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('roles.update');
+Route::delete('/roles/delete/{role}', [App\Http\Controllers\RoleController::class, 'destroy'])->name('roles.destroy');
+Route::delete('/admins/delete/{user}', [App\Http\Controllers\UserController::class, 'destroyAdmin'])->name('admins.destroy');
+
+
+Route::post('/pay', [App\Http\Controllers\FlutterwaveController::class, 'initialize'])->name('pay');
+Route::get('/admins/pay', [App\Http\Controllers\FlutterwaveController::class, 'index'])->name('admins.pay');
+Route::get('/rave/callback', [App\Http\Controllers\FlutterwaveController::class, 'callback'])->name('callback');
 
 Route::get('/users/view/{id}', [App\Http\Controllers\UserController::class, 'view'])->name('users.view');
 
@@ -96,7 +127,10 @@ Route::get('/users/profile', [App\Http\Controllers\UserController::class, 'profi
 
 Route::post('/users/profile/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('users.profile.update');
 
+Route::put('/admins/update/{id}', [App\Http\Controllers\UserController::class, 'updateAdmin'])->name('admin.update');
+
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
+Route::get('/admins/create', [App\Http\Controllers\UserController::class, 'createAdmin'])->name('admins.create');
 
 Route::get('/items', [App\Http\Controllers\FoodController::class, 'index'])->name('items');
 

@@ -8,13 +8,29 @@
                 <span class="hide-menu">{{trans('lang.dashboard')}}</span>
             </a>
         </li>
+       
+        <li>
+        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                <i class="mdi mdi-plus-box"></i>
+                <span class="hide-menu">Admin Manager</span>
+            </a>    
 
+            <ul aria-expanded="false" class="collapse">
+                <li><a href="{!! url('admins') !!}">Admins</a></li>  
+                <li><a href="{!! url('roles') !!}">Role Manager</a></li>
+           
+                <li><a href="{!! url('missingitems') !!}">Missing Items</a></li>
+                <li><a href="{!! url('reviewattributes') !!}">Charges</a></li>
+            </ul>
+        </li>
+        @can('section-view')
+      
         <li><a class="waves-effect waves-dark" href="{!! url('section') !!}" aria-expanded="false">
                 <i class="mdi mdi-clipboard-text"></i>
                 <span class="hide-menu">{{trans('lang.section_plural')}}</span>
             </a>
         </li>
-
+        @endcan
         <li>
             <a class="waves-effect waves-dark" href="{!! url('users') !!}" aria-expanded="false">
                 <i class="mdi mdi-account-multiple"></i>

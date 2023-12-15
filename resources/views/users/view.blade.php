@@ -77,7 +77,11 @@
                                     <div class="col-7 profile_image">
                                     </div>
                                 </div>
-
+                                <div class="form-group row width-50">
+                                    <label class="col-3 control-label">Selfie With Identification</label>
+                                    <div class="col-7 selfie_image">
+                                    </div>
+                                </div>
                                 <div class="form-group row width-50">
                                     <label class="col-3 control-label">{{trans('lang.wallet_Balance')}}</label>
                                     <div class="col-7 wallet_balance">
@@ -250,14 +254,21 @@
                 $('.wallet_balance').html(wallet_balance);
 
                 var image = "";
+                var selfie = "";
                 if (user.profilePictureURL) {
                     image = '<img width="100px" id="" height="auto" src="' + user.profilePictureURL + '">';
                 } else {
                     image = '<img width="100px" id="" height="auto" src="' + placeholderImage + '">';
                 }
 
-                $('.profile_image').html(image);
+                if (user.userSelfie) {
+                    selfie = '<img width="100px" id="" height="auto" src="' + user.userSelfie + '">';
+                } else {
+                    selfie = '<img width="100px" id="" height="auto" src="' + placeholderImage + '">';
+                }
 
+                $('.profile_image').html(image);
+                $('.selfie_image').html(selfie);
                 var address = '';
 
                 if (user.hasOwnProperty('shippingAddress')) {
