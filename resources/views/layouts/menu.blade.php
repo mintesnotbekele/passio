@@ -9,7 +9,7 @@
             </a>
         </li>
        
-        <!-- <li>
+        <li>
         <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                 <i class="mdi mdi-plus-box"></i>
                 <span class="hide-menu">Admin Manager</span>
@@ -22,7 +22,7 @@
                 <li><a href="{!! url('missingitems') !!}">Missing Items</a></li>
                 <li><a href="{!! url('reviewattributes') !!}">Charges</a></li>
             </ul>
-        </li> -->
+        </li>
         @can('section-view')
       
         <li><a class="waves-effect waves-dark" href="{!! url('section') !!}" aria-expanded="false">
