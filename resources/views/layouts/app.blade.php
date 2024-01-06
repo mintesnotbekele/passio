@@ -229,7 +229,6 @@
         @yield('content')
     </main>
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{ asset('assets/plugins/bootstrap/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -239,7 +238,6 @@
 <script src="{{ asset('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
 <script src="{{ asset('js/custom.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/summernote/summernote-bs4.js')}}"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
@@ -253,10 +251,36 @@
 <script src="{{ asset('js/bootstrap-tagsinput.js') }}"></script>
 <script src="{{ asset('js/crypto-js.js') }}"></script>
 <script src="{{ asset('js/jquery.cookie.js') }}"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 <script src="{{ asset('js/jquery.validate.js') }}"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/validate-js/2.0.1/validate.min.js" integrity="sha512-8GLIg5ayTvD6F9ML/cSRMD19nHqaLPWxISikfc5hsMJyX7Pm+IIbHlhBDY2slGisYLBqiVNVll+71CYDD5RBqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- Datatable script -->
+<script src="{{ asset('js/sidebarmenu.js') }}"></script>
+<script src="{{ asset('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/plugins/summernote/summernote-bs4.js')}}"></script>
+<script src="{{ asset('js/custom.min.js') }}"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+<script src="https://unpkg.com/geofirestore@5.2.0/dist/geofirestore.js"></script>
+<script src="https://cdn.firebase.com/libs/geofire/5.0.1/geofire.min.js"></script>
+<script src="{{ asset('js/chosen.jquery.js') }}"></script>
+<script src="{{ asset('assets/plugins/bootstrap/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
+<script src="{{ asset('js/waves.js') }}"></script>
+<script src="{{ asset('js/jquery.resizeImg.js') }}"></script>
+<script src="{{ asset('js/bootstrap-tagsinput.js') }}"></script>
+<script src="{{ asset('js/crypto-js.js') }}"></script>
+<script src="{{ asset('js/jquery.cookie.js') }}"></script>
+ -->
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript"
         src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
